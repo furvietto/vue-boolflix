@@ -1,68 +1,52 @@
 .<template>
-  <div class="container">
-      <div class="row">
-          <div class="col">
-              <ul>
+  <div class="container">      
+              <ul v-if="inputError" class="list-inline row row-cols-6 gap-3 justify-content-center">
                   <li
-                  v-for="(film,index) in getAxios" 
+                  class="card col"
+                  v-for="(film,index) in inputHeader" 
                   :key="index"
                   >
-                  <div>{{film.title}}</div>
+                  <div>TITLE: {{film.title}}</div>
                   <div>
-                      {{film.original_title}}
+                    TITOLO ORIGINALE: {{film.original_title}}
                   </div>
                     <div>
-                        {{film.original_language}}
+                       LINGUA: {{film.original_language}}
                     </div>
                   <div>
-                      {{film.vote_average}}
+                     VOTO FILM: {{film.vote_average}}
                   </div>
                   
                   </li>
               </ul>
-          </div>
-      </div>
+              <div v-else>
+                  Ricerca non correlata
+              </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     name:"Main",
 
-    props: ["inputHeader"],
+    props: ["inputHeader","inputError"],
 
     data() {
         return {
-           getFilm: [], 
-           getString: this.inputHeader,
+        
         }
     },
 
-    computed: {
-      getAxios: function () {
-          if (this.getString != "") {
-              axios.get("https://api.themoviedb.org/3/search/movie?api_key=53982486ea69d909f7fc01dea5daec6b",
-            {
-                params: {
-                    query: this.getString
-                }
-            })
-           .then(res => {
-               return res.data.results     
-           })
-           .catch(err => {
-              return console.error(err);               
-           })
-          }
-           
-       }
+    methods: {
+        
     },
 
 }
 </script>
 
-<style>
-
+<style lang="scss">
+ul {
+    list-style: none;
+}
 </style>

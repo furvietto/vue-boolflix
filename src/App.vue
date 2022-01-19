@@ -2,9 +2,11 @@
   <div id="app">
    <Header 
    @sendSelect="getSelect($event)"
+   @sendError="getError($event)"
    />
    <Main 
    :inputHeader="valueHeader"
+    :inputError="errorHeader"
    />
   </div>
 </template>
@@ -17,13 +19,17 @@ export default {
   name: "App",
   data() {
     return {
-      valueHeader: ""
+      valueHeader: null,
+      errorHeader: null,
     }
   },
   methods: {
     getSelect(value) {
       this.valueHeader = value
-    }
+    },
+    getError(value) {
+      this.errorHeader = value
+    },
   },
 
   components: {
