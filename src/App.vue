@@ -17,7 +17,7 @@ export default {
   name: "App",
   data() {
     return {
-      valueHeader: null
+      valueHeader: ""
     }
   },
   methods: {
