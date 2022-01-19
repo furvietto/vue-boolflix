@@ -2,7 +2,7 @@
   <div class="container-fluid">
       <div class="row justify-content-end">
           <div class="col-3">
-              <input @keyup.enter="getAxios" v-model="inputValue" type="text">
+              <input v-model="inputValue" type="text">
               <button @click="getAxios">INVIA</button>
               <!-- $emit('sendSelect', inputValue) -->
           </div>
