@@ -21,11 +21,21 @@ export default {
 
     methods: {
         getFlag(lang) {
-            if (lang === 'en') {
+            switch (lang){
+            case 'en':
                 return 'us';
+            case 'ko':
+                return 'kr';
+            case 'ja':
+                return 'jp';
+            case 'ur':
+                return 'pk';
+            case 'zh':
+                return 'cn';
+            default:
+                return lang
             }
-            return lang;
-        },
+        }
     },
 
     props: ["title","original","language","vote"]

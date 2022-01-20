@@ -13,20 +13,33 @@
             </ul>
             <div class="row justify-content-center" v-else>
                 <div class="col-2">
-                    Ricerca non correlata...
+                    nessun film trovato...
                 </div>                
             </div>
             
-            <ul class="list-inline row row-cols-6 gap-3 justify-content-center">
+            <ul v-if="filmAndMovies.movie.length > 0" class="list-inline row row-cols-6 gap-3 justify-content-center">
                 <h1 class="text-center col-12">Series</h1>
-
+                 <Card
+                v-for="(series,index) in filmAndMovies.movie" 
+                :key="index"
+                :title="series.name"
+                :original="series.original_name"
+                :language="series.original_language"
+                :vote="series.vote_average"
+                />
             </ul>
+             <div class="row justify-content-center" v-else>
+                <div class="col-2">
+                    nessuna serie trovata...
+                </div>                
+            </div>
 
   </div>
 </template>
 
 <script>
-import Card from './Card.vue'
+import Card from './Card.vue';
+
 
 export default {
     name:"Main",
