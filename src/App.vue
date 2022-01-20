@@ -1,10 +1,11 @@
 <template>
   <div id="app">
    <Header 
-   @sendSelect="getSelect($event)"
+   @sendFilms="getFilms($event)"
+   @sendMovies="getMovies($event)"
    />
    <Main 
-   :inputHeader="valueHeader"
+   :filmAndMovies="valueAll"
    
    />
   </div>
@@ -18,13 +19,19 @@ export default {
   name: "App",
   data() {
     return {
-      valueHeader: null,
+      valueAll: {
+        films:[],
+        movie:[]
+      }
     }
   },
   methods: {
-    getSelect(value) {
-      this.valueHeader = value
+    getFilms(value) {
+      this.valueAll.films = value
     },
+    getMovies(value) {
+      this.valueAll.movie = value
+    }
   },
 
   components: {

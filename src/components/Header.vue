@@ -2,8 +2,8 @@
   <div class="container-fluid">
       <div class="row justify-content-end">
           <div class="col-3">
-              <input @keyup.enter="getAxios" v-model="inputValue" type="text">
-              <button @click="getAxios">INVIA</button>
+              <input @keyup.enter="getMerge" v-model="inputValue" type="text">
+              <button @click="getMerge">INVIA</button>
           </div>
       </div>
   </div>
@@ -19,11 +19,16 @@ export default {
         return {
             inputValue: "",
             getFilm: [], 
+            getTvSeries: []
         }
     },
     methods: {
-      getAxios: function () {
-          if (this.inputValue != "") {
+    getMerge: function () {
+      this.getMovies();  
+      this.getSeries();  
+    },    
+    getMovies: function () {
+        if (this.inputValue != "") {
               axios.get("https://api.themoviedb.org/3/search/movie?api_key=53982486ea69d909f7fc01dea5daec6b",
             {
                 params: {
@@ -32,21 +37,40 @@ export default {
             })
            .then(res => {
                this.getFilm = res.data.results
-                this.$emit("sendSelect", this.getFilm)
+                this.$emit("sendFilms", this.getFilm)
  
            })
            .catch(err => {
                console.log(err);
           
            })
-          }
-           
+          }          
        },
 
-    getTvSeries: function () {
-        console.log("ciao");
-    }
+    getSeries: function () {
+        if (this.inputValue != "") {
+              axios.get("https://api.themoviedb.org/3/search/tv?api_key=53982486ea69d909f7fc01dea5daec6b&language=it_IT",
+            {
+                params: {
+                    query: this.inputValue
+                }
+            })
+           .then(res => {
+               this.getTvSeries = res.data.results
+                this.$emit("sendMovies", this.getTvSeries)
+ 
+           })
+           .catch(err => {
+               console.log(err);
+          
+           })
+          }          
+       },
     },
+
+    
+
+   
 }
 </script>
 

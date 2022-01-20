@@ -1,20 +1,27 @@
 .<template>
   <div class="container">      
-              <ul v-if="inputHeader.length > 0" class="list-inline row row-cols-6 gap-3 justify-content-center">
-                  <Card 
-                    v-for="(film,index) in inputHeader" 
-                    :key="index"
-                    :title="film.title"
-                    :original="film.original_title"
-                    :language="film.original_language"
-                    :vote="film.vote_average"
-                  />
-              </ul>
-              <div class="row justify-content-center" v-else>
-                  <div class="col-2">
-                       Ricerca non correlata...
-                  </div>                
-              </div>
+            <ul v-if="filmAndMovies.films.length > 0" class="list-inline row row-cols-6 gap-3 justify-content-center">
+                <h1 class="text-center col-12">Movies</h1>
+                <Card
+                v-for="(film,index) in filmAndMovies.films" 
+                :key="index"
+                :title="film.title"
+                :original="film.original_title"
+                :language="film.original_language"
+                :vote="film.vote_average"
+                />
+            </ul>
+            <div class="row justify-content-center" v-else>
+                <div class="col-2">
+                    Ricerca non correlata...
+                </div>                
+            </div>
+            
+            <ul class="list-inline row row-cols-6 gap-3 justify-content-center">
+                <h1 class="text-center col-12">Series</h1>
+
+            </ul>
+
   </div>
 </template>
 
@@ -28,7 +35,7 @@ export default {
         Card,
     },
 
-    props: ["inputHeader"],
+    props: ["filmAndMovies"],
 
 }
 </script>
