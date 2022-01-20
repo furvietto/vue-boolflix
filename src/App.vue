@@ -3,10 +3,13 @@
    <Header 
    @sendFilms="getFilms($event)"
    @sendMovies="getMovies($event)"
+   @sendBooleanFilm="getBooleanFilm($event)"
+   @sendBooleanMovies="getBooleanMovies($event)"
    />
    <Main 
    :filmAndMovies="valueAll"
-   
+   :valueBooleanFilm="valueBoolFilm"
+   :valueBooleanMovies="valueBoolMovies"
    />
   </div>
 </template>
@@ -19,6 +22,8 @@ export default {
   name: "App",
   data() {
     return {
+      valueBoolFilm:null,
+      valueBoolMovies:null,
       valueAll: {
         films:[],
         movie:[]
@@ -31,7 +36,14 @@ export default {
     },
     getMovies(value) {
       this.valueAll.movie = value
+    },
+    getBooleanFilm(value) {
+      this.valueBoolFilm = value
+    },
+    getBooleanMovies(value) {
+      this.valueBoolMovies= value
     }
+
   },
 
   components: {

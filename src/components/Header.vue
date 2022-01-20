@@ -28,7 +28,7 @@ export default {
       this.getSeries();  
     },    
     getMovies: function () {
-        if (this.inputValue != "") {
+        
               axios.get("https://api.themoviedb.org/3/search/movie?api_key=53982486ea69d909f7fc01dea5daec6b",
             {
                 params: {
@@ -37,18 +37,22 @@ export default {
             })
            .then(res => {
                this.getFilm = res.data.results
-                this.$emit("sendFilms", this.getFilm)
- 
+               if (this.getFilm.length > 0) {
+                   this.$emit("sendBooleanFilm" , true)
+                   this.$emit("sendFilms", this.getFilm)
+               } else {
+                   this.$emit("sendBooleanFilm" , false)
+               }
            })
            .catch(err => {
                console.log(err);
-          
+                 this.$emit("sendBooleanFilm" , false)
            })
-          }          
+                   
        },
 
     getSeries: function () {
-        if (this.inputValue != "") {
+    
               axios.get("https://api.themoviedb.org/3/search/tv?api_key=53982486ea69d909f7fc01dea5daec6b&language=it_IT",
             {
                 params: {
@@ -57,14 +61,20 @@ export default {
             })
            .then(res => {
                this.getTvSeries = res.data.results
-                this.$emit("sendMovies", this.getTvSeries)
- 
+               if (this.getTvSeries.length > 0) {
+                   this.$emit("sendMovies", this.getTvSeries)
+                    this.$emit("sendBooleanMovies", true)
+               } else {
+                    this.$emit("sendBooleanMovies", false)
+               }
+                
+
            })
            .catch(err => {
                console.log(err);
-          
+                 this.$emit("sendBooleanMovies", false)
            })
-          }          
+                   
        },
     },
 
