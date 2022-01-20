@@ -9,6 +9,7 @@
                 :original="film.original_title"
                 :language="film.original_language"
                 :vote="film.vote_average"
+                :img="film.poster_path"
                 />
             </ul>
             <div class="row justify-content-center" v-else-if="valueBooleanFilm == false">
@@ -26,6 +27,7 @@
                 :original="series.original_name"
                 :language="series.original_language"
                 :vote="series.vote_average"
+                :img="series.poster_path"
                 />
             </ul>
              <div class="row justify-content-center" v-else-if="valueBooleanMovies == false">

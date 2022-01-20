@@ -2,6 +2,7 @@
 .<template>
 
    <li class="card col">
+    <img :src="'https://image.tmdb.org/t/p/w500' + img" alt="">
     <div>TITLE: {{title}}</div>
     <div>
     TITOLO ORIGINALE: {{original}}
@@ -38,7 +39,7 @@ export default {
         }
     },
 
-    props: ["title","original","language","vote"]
+    props: ["title","original","language","vote","img"]
     }
 
 
