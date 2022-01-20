@@ -4,7 +4,6 @@
           <div class="col-3">
               <input @keyup.enter="getAxios" v-model="inputValue" type="text">
               <button @click="getAxios">INVIA</button>
-              <!-- $emit('sendSelect', inputValue) -->
           </div>
       </div>
   </div>
@@ -34,19 +33,23 @@ export default {
            .then(res => {
                this.getFilm = res.data.results
                 this.$emit("sendSelect", this.getFilm)
-                this.$emit("sendError", true)
+ 
            })
            .catch(err => {
                console.log(err);
-               this.$emit("sendError", false)             
+          
            })
           }
            
-       }
+       },
+
+    getTvSeries: function () {
+        console.log("ciao");
+    }
     },
 }
 </script>
 
 <style>
-
+    
 </style>
