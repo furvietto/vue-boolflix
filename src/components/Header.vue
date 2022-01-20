@@ -24,7 +24,8 @@ export default {
     },
     methods: {
       getAxios: function () {
-           axios.get("https://api.themoviedb.org/3/search/movie?api_key=53982486ea69d909f7fc01dea5daec6b",
+          if (this.inputValue != "") {
+              axios.get("https://api.themoviedb.org/3/search/movie?api_key=53982486ea69d909f7fc01dea5daec6b",
             {
                 params: {
                     query: this.inputValue
@@ -39,6 +40,8 @@ export default {
                console.log(err);
                this.$emit("sendError", false)             
            })
+          }
+           
        }
     },
 }

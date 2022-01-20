@@ -1,6 +1,6 @@
 .<template>
   <div class="container">      
-              <ul v-if="inputError == true" class="list-inline row row-cols-6 gap-3 justify-content-center">
+              <ul v-if="inputHeader.length > 0" class="list-inline row row-cols-6 gap-3 justify-content-center">
                   <Card 
                     v-for="(film,index) in inputHeader" 
                     :key="index"
@@ -10,7 +10,7 @@
                     :vote="film.vote_average"
                   />
               </ul>
-              <div class="row justify-content-center" v-else-if="inputError == false">
+              <div class="row justify-content-center" v-else>
                   <div class="col-2">
                        Ricerca non correlata...
                   </div>                
@@ -28,17 +28,7 @@ export default {
         Card,
     },
 
-    props: ["inputHeader","inputError"],
-
-    data() {
-        return {
-        
-        }
-    },
-
-    methods: {
-        
-    },
+    props: ["inputHeader"],
 
 }
 </script>
