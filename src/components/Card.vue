@@ -1,21 +1,24 @@
 
 .<template>
 
-   <li class="card col pt-1 pb-1">
+   <li class="text-white position-relative card col pt-1 pb-1">
     <img v-if="img" :src="'https://image.tmdb.org/t/p/w500' + img" alt="">
     <img v-else src="https://images-ext-2.discordapp.net/external/N_p-FmrdDUA2xojPEDtU9XvZSh8i6ki-3HeCRMMAdwM/https/cdn.download.it/ms/static/images/poster-placeholder.png?width=468&height=700" alt="">
-    <div>TITLE: {{title}}</div>
-    <div v-show="original != title">
-    TITOLO ORIGINALE: {{original}}
+    <div class="appear p-3">
+        <div>TITLE: {{title}}</div>
+        <div v-show="original != title">
+        TITOLO ORIGINALE: {{original}}
+        </div>
+        <div>
+            LINGUA: <i :class="'flag flag-' + getFlag(language)"></i> 
+        </div>
+        <div>
+            VOTO : <i v-for="(n, index) in 5" 
+            :key="index" 
+            :class="(index < getVote(vote) ? 'fas fa-star' : 'far fa-star')"></i>
+        </div> 
     </div>
-    <div>
-        LINGUA: <i :class="'flag flag-' + getFlag(language)"></i> 
-    </div>
-    <div>
-        VOTO : <i v-for="(n, index) in 5" 
-        :key="index" 
-        :class="(index < getVote(vote) ? 'fas fa-star' : 'far fa-star')"></i>
-    </div>  
+     
     
 </li>
 </template>
@@ -53,7 +56,21 @@ export default {
 
 </script>
 
-<style>
-
+<style lang="scss" scoped>
     @import '~mdb-ui-kit/css/mdb.min.css';
+li {
+    &:hover .appear {
+        display: block;
+    }
+     .appear {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        width: 100%;
+        height: 100%;
+    }
+}
+   
 </style>
