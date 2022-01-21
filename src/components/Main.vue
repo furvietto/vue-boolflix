@@ -1,6 +1,6 @@
 .<template>
   <div class="container">      
-            <ul v-if="valueBooleanFilm" class="list-inline row row-cols-6 gap-3 justify-content-center">
+            <ul v-if="valueBooleanFilm" class="list-inline row row-cols-5 gap-4 justify-content-center">
                 <h1 class="text-center text-light col-12">Movies</h1>
                 <Card
                 v-for="(film,index) in filmAndMovies.films" 
@@ -19,7 +19,7 @@
                 </div>                
             </div>
             
-            <ul v-if="valueBooleanMovies" class="list-inline row row-cols-6 gap-3 justify-content-center">
+            <ul v-if="valueBooleanMovies" class="list-inline row row-cols-5 gap-4 justify-content-center">
                 <h1 class="text-center text-light col-12">Series</h1>
                  <Card
                 v-for="(series,index) in filmAndMovies.movie" 
