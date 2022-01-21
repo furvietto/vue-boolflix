@@ -17,6 +17,9 @@
             :key="index" 
             :class="(index < getVote(vote) ? 'fas fa-star' : 'far fa-star')"></i>
         </div> 
+        <div>
+            OVERVIEW : {{(overview != "") ? overview : "no description" }}
+        </div>
     </div>
      
     
@@ -50,7 +53,7 @@ export default {
         }
     },
 
-    props: ["title","original","language","vote","img"]
+    props: ["title","original","language","vote","img","overview"]
     }
 
 
@@ -59,6 +62,7 @@ export default {
 <style lang="scss" scoped>
     @import '~mdb-ui-kit/css/mdb.min.css';
 li {
+    cursor: pointer;
     &:hover .appear {
         display: block;
     }
@@ -67,9 +71,10 @@ li {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($color: #000000, $alpha: 0.5);
+        background-color: rgba($color: #000000, $alpha: 0.6);
         width: 100%;
         height: 100%;
+        overflow: auto;
     }
 }
    
