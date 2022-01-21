@@ -55,4 +55,10 @@ export default {
 
 <style lang="scss">
   @import "~bootstrap/scss/bootstrap";
+  #app {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: black ;
+  }
 </style>

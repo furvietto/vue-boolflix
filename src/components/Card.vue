@@ -24,12 +24,6 @@
 export default {
     name:"Card",
 
-    data() {
-        return {
-            decimalNumber: null
-        }
-    },
-
     methods: {
         getFlag(lang) {
             switch (lang){

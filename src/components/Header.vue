@@ -1,7 +1,10 @@
 .<template>
   <div class="container-fluid">
-      <div class="row justify-content-end">
-          <div class="col-3">
+      <div class="row justify-content-between bg-dark">
+          <div class="col-3 ">
+              <img src="https://cdn.discordapp.com/attachments/895657298859544588/934028535184642078/logo.png" alt="">
+          </div>
+          <div class="col-3 d-flex align-items-center">
               <input @keyup.enter="getMerge" v-model="inputValue" type="text">
               <button @click="getMerge">INVIA</button>
           </div>
@@ -84,6 +87,6 @@ export default {
 }
 </script>
 
-<style>
-    
+<style lang='scss' scoped>
+
 </style>
