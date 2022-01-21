@@ -4,7 +4,7 @@
                 <h1 class="text-center col-12">Movies</h1>
                 <Card
                 v-for="(film,index) in filmAndMovies.films" 
-                :key="index"
+                :key="index+ '-' +film.id"
                 :title="film.title"
                 :original="film.original_title"
                 :language="film.original_language"
@@ -22,7 +22,7 @@
                 <h1 class="text-center col-12">Series</h1>
                  <Card
                 v-for="(series,index) in filmAndMovies.movie" 
-                :key="index"
+                :key="index+'-'+series.id"
                 :title="series.name"
                 :original="series.original_name"
                 :language="series.original_language"
@@ -35,7 +35,6 @@
                     nessuna serie trovata...
                 </div>                
             </div>
-
   </div>
 </template>
 
