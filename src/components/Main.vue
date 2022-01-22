@@ -1,7 +1,8 @@
 .<template>
-  <div class="container">      
-            <ul v-if="valueBooleanFilm" class="list-inline row row-cols-5 gap-4 justify-content-center">
-                <h1 class="text-center text-light col-12">Movies</h1>
+  <div class="container text-white"> 
+      <div v-if="valueBooleanFilm" class="movie">
+          <h1 class="text-center mt-5 mb-5">Movies</h1>
+             <ul class="list-inline row row-cols-3 row-cols-md-4 row-cols-lg-5 gap-5 justify-content-center">
                 <Card
                 v-for="(film,index) in filmAndMovies.films" 
                 :key="index+ '-' +film.id"
@@ -13,14 +14,17 @@
                 :overview="film.overview"
                 />
             </ul>
+          </div>     
+           
             <div class="row justify-content-center" v-else-if="valueBooleanFilm == false">
-                <div class="col-2 text-white">
+                <div class="col-2">
                     nessun film trovato...
                 </div>                
             </div>
             
-            <ul v-if="valueBooleanMovies" class="list-inline row row-cols-5 gap-4 justify-content-center">
-                <h1 class="text-center text-light col-12">Series</h1>
+            <div v-if="valueBooleanMovies" class="series">
+                 <h1 class="text-center mt-5 mb-5">Series</h1>
+                <ul class="list-inline row row-cols-3 row-cols-md-4 row-cols-lg-5 gap-5 justify-content-center">
                  <Card
                 v-for="(series,index) in filmAndMovies.movie" 
                 :key="index+'-'+series.id"
@@ -32,8 +36,10 @@
                 :overview="series.overview"
                 />
             </ul>
+            </div>
+            
              <div class="row justify-content-center" v-else-if="valueBooleanMovies == false">
-                <div class="col-2 text-white">
+                <div class="col-2">
                     nessuna serie trovata...
                 </div>                
             </div>
