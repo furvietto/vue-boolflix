@@ -1,7 +1,7 @@
 
 .<template>
 
-   <li class="text-white position-relative card col pt-1 pb-1">
+   <li class="text-white bg-dark position-relative card col pt-1 pb-1">
     <img v-if="img" :src="'https://image.tmdb.org/t/p/w500' + img" alt="">
     <img v-else src="https://images-ext-2.discordapp.net/external/N_p-FmrdDUA2xojPEDtU9XvZSh8i6ki-3HeCRMMAdwM/https/cdn.download.it/ms/static/images/poster-placeholder.png?width=468&height=700" alt="">
     <div class="appear p-3">
