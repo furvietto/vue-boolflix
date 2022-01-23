@@ -1,11 +1,11 @@
 
 .<template>
 
-   <li class="text-white bg-dark position-relative card col pt-1 pb-1">
+   <li class="text-white text-center bg-dark position-relative card col pt-1 pb-1">
     <img v-if="img" :src="'https://image.tmdb.org/t/p/w500' + img" alt="">
     <img v-else src="https://images-ext-2.discordapp.net/external/N_p-FmrdDUA2xojPEDtU9XvZSh8i6ki-3HeCRMMAdwM/https/cdn.download.it/ms/static/images/poster-placeholder.png?width=468&height=700" alt="">
     <div class="appear p-3">
-        <h4>{{title}}</h4>
+        <h4 class="mb-3">{{title}}</h4>
         <div class="mb-3" v-show="original != title">
         TITOLO ORIGINALE: {{original}}
         </div>
@@ -71,7 +71,7 @@ li {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($color: #000000, $alpha: 0.6);
+        background-color: rgba($color: #000000, $alpha: 0.7);
         width: 100%;
         height: 100%;
         overflow: auto;
